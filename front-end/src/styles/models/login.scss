@@ -1,0 +1,18 @@
+#login-page{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: rgba($color: #000, $alpha: .6);
+    z-index: 1003;
+    display: none;
+    .tips{
+        min-height: 14px;
+        line-height: 14px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: #d9534f;
+    }
+}

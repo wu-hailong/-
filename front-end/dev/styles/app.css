@@ -1,0 +1,31 @@
+.hide-btn .logout {
+  display: none; }
+
+.hide-btn .signout {
+  display: block; }
+
+.signout {
+  margin: 15px 15px 0 0;
+  font-size: 12px;
+  display: none; }
+
+.centered img {
+  width: 60px;
+  height: 60px; }
+
+#login-page {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1003;
+  display: none; }
+  #login-page .tips {
+    min-height: 14px;
+    line-height: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #d9534f; }

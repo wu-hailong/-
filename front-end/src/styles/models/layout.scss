@@ -1,0 +1,17 @@
+.hide-btn{
+    .logout{display: none;}
+    .signout{
+        display: block;
+    }
+}
+.signout{
+    margin: 15px 15px 0 0;
+    font-size: 12px;
+    display: none;
+}
+.centered{
+    img{
+        width: 60px;
+        height: 60px;
+    }
+}
