@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "better-scroll": "^1.15.2",
+    "sme-router": "^0.12.8",
     "string-loader": "0.0.1"
   }
 }

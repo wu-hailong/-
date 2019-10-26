@@ -4,7 +4,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="显示/隐藏导航"></div>
     </div>
     
-    <a href="index.html" class="logo"><b>后台管理系统</b></a>
+    <a href="index.html" class="logo"><b>实习僧管理系统</b></a>
     
     <div class="nav notify-row" id="top_menu">
     
@@ -148,35 +148,43 @@
     </div>
     <div class="top-menu">
     <ul class="nav pull-right top-menu top-tit">
+        {{if !isSignin}}
         <li><a class="logout" data-type="signin" href="javascript:void(0);">登录</a></li>
         <li><a class="logout" data-type="signup" href="javascript:void(0);">注册</a></li>
-        <a href="javascript:void(0);" class="signout btn btn-theme03">退出登录</a>
+        {{else}}
+        <li> <a href="javascript:void(0);" class="signout">退出登录</a></li>
+        {{/if}}
     </ul>
     </div>
 </header>       
 <aside>
     <div id="sidebar" class="nav-collapse ">
-
         <ul class="sidebar-menu" id="nav-accordion">
+        {{if isSignin}}
+        <p class="centered"><a href="profile.html"><img src="/assets/libs/img/user.jpg" class="img-circle" width="60"></a></p>
+        <h5 class="centered user-id">欢迎您！<br> {{username}}</h5>
+        {{else}}
         <p class="centered"><a href="profile.html"><img src="/assets/libs/img/unlogin.jpg" class="img-circle" width="60"></a></p>
-        <h5 class="centered user-id">No Login...</h5>
+        <h5 class="centered user-id">未登录...</h5>
+        {{/if}}
         <li class="mt">
-        <a class="active" href="index.html">
+        <a class="active" href="#/home" data-url="home">
         <i class="fa fa-dashboard"></i>
-        <span>Dashboard</span>
+        <span>首页</span>
         </a>
         </li>
         <li class="sub-menu">
-        <a href="#">
+        <a href="#/list"  data-url="list">
         <i class="fa fa-desktop"></i>
-        <span>UI Elements</span>
+        <span>职位列表</span>
         </a>
-        <ul class="sub">
-        <li><a href="general.html">General</a></li>
-        <li><a href="buttons.html">Buttons</a></li>
-        <li><a href="panels.html">Panels</a></li>
-        </ul>
+        <!-- <ul class="sub">
+        <li><a href="##">General</a></li>
+        <li><a href="##">Buttons</a></li>
+        <li><a href="##">Panels</a></li>
+        </ul> -->
         </li>
+        <!-- 
         <li class="sub-menu">
         <a href="#">
         <i class="fa fa-cogs"></i>
@@ -228,10 +236,18 @@
         <li><a href="chartjs.html">Chartjs</a></li>
         </ul>
         </li>
-        </ul>
+        </ul> -->
 
     </div>
 </aside>
+<section id="main-content">
+        <section class="wrapper">
+        <div class="row" id="router-view">
+
+        </div>
+        </section>
+</section>
+
 <div id="login-page">
 </div>
   

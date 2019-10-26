@@ -1,13 +1,11 @@
 <div class="container">
     <form class="form-login">
-        <h2 class="form-login-heading" id="login-title">sign in now</h2>
+        <h2 class="form-login-heading" id="login-title"></h2>
         <div class="login-wrap">
             <input type="text" class="form-control" name="username" id="username" placeholder="Username" autofocus>
             <br>
             <input type="password" class="form-control"  name="password" id="password" placeholder="Password">
-            <p class="tips">
-              
-            </p>
+            <p class="tips"></p>
             <a class="btn btn-theme btn-block" id="submit-btn" href="javascript:void(0);"><i class="fa fa-lock"></i> 确定</a>
             <a class="btn btn-default btn-block" id="cancel-btn" href="javascript:void(0);">取消</a>
         </div>
