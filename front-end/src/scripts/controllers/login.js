@@ -1,9 +1,9 @@
 import loginView from "../views/login.art"
 // import httpModel from "../models/http"
 class Login{
-    // constructor(){
-    //     this.render()
-    // }
+    constructor(){
+        this.render()
+    }
     render(){
         let html = loginView()
      

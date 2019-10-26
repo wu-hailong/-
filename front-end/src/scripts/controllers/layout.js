@@ -14,9 +14,7 @@ class Layout{
             isSignin:this.isSignin,
             username:this.username
         })
-        $("#container").html(html)
-        //渲染登录页面
-        login.render()
+        $("#menuWrap").html(html)
         this.bindEvent()
     }
     bindEvent(){
@@ -59,7 +57,6 @@ class Layout{
     submitSuccess(result){
         // console.log(result) 
         let {message} = result.data
-        let {username}= result.data 
         $(".form-login")[0].reset()
         if(result.ret){
             this.hideLogin()
@@ -75,7 +72,8 @@ class Layout{
             //设置session-cookie
           this.getAjax()
             // 重新渲染页面
-          this.render()
+            location.reload()
+        //   this.render()
         }else if(message === "注册成功."){
             alert(message)
         }
@@ -86,7 +84,8 @@ class Layout{
         await httpModel.get({
             url:"/api/users/signout"
         })
-        this.render()
+        // this.render()
+        location.reload()
     }
 
     handleUrl(){     

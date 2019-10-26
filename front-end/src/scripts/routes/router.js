@@ -6,7 +6,7 @@ import {list} from "../controllers/list"
 const router = new SMErouter("router-view")
 router.use((req)=>{
     let url = req.url.slice(1)
-    console.log(url)
+    // console.log(url)
     $(".sidebar-menu a").removeClass("active")
     $(`.sidebar-menu a[data-url=${url}]`).addClass("active")
 })
