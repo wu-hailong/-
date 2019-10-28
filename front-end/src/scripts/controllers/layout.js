@@ -1,6 +1,6 @@
 import layoutView from "../views/layout.art"
 import httpModel from "../models/http"
-import login from "./login"
+import store from "store"
 class Layout{
     constructor(){
         // this.getAjax()
@@ -72,20 +72,21 @@ class Layout{
         if(message === "登录成功."){
             //设置session-cookie
           this.getAjax()
-            // 重新渲染页面
-            location.reload()
-        //   this.render()
+          this.render()
+        // 登录成功 重新加载页面
+        // location.reload()
         }else if(message === "注册成功."){
             alert(message)
         }
     }
     
     //退出登录逻辑
-    async signOut(){
-        await httpModel.get({
-            url:"/api/users/signout"
-        })
+    signOut(){
+        // await httpModel.get({
+        //     url:"/api/users/signout"
+        // })
         // this.render()
+        store.remove('token')
         location.reload()
     }
 

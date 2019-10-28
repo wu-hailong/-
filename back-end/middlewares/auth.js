@@ -1,16 +1,29 @@
-const isSignin = function(req,res,next){
+const tools = require("../utils/tools")
+
+const isSignin = async function(req,res,next){
     res.set('Content-Type', 'application/json; charset=utf-8')
-  
-    if(req.session.username){
+
+    let token = req.get("X-Access-Token") 
+    if(token){
+      let {username} = await tools.verifyToken(token)
+      // console.log(username)
       if (req.path === '/isSignin') {
         res.render("succ",{
           data:JSON.stringify({
-            username:req.session.username
+            username:username
           })
         })
-
       }else{
-        next()
+        let decoded = await tools.verifyToken(token)
+        if(decoded){
+          next()
+        }else{
+          res.render("fail",{
+            data:JSON.stringify({
+              message:"token验证失败."
+            })
+          })
+        }
       }
     }else{
       res.render("fail",{

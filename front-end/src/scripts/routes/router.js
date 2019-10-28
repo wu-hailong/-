@@ -1,7 +1,7 @@
 import SMErouter from "sme-router"
 
 import {home} from "../controllers/home" 
-import {list} from "../controllers/list" 
+import * as position from "../controllers/position" 
 
 const router = new SMErouter("router-view")
 router.use((req)=>{
@@ -12,7 +12,7 @@ router.use((req)=>{
 })
 // console.log(router)
 router.route("/home",home)
-router.route("/list",list)
+router.route("/list",position.list)
 router.route('*', (req, res, next) => {
     res.redirect('/home')
   })
