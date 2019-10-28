@@ -30,6 +30,7 @@ class Layout{
         $(".login-wrap input").on("focus",function(){
             $(".tips").html("")
         })
+
     }
     //提交表单  进行ajax请求
     async handleSubmit(){

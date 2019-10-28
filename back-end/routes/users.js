@@ -4,6 +4,7 @@ var { signup , hasSame , signin , isSignin , signout } = require("../controllers
 /* POST users listing. */
 router.post('/signup', hasSame , signup );
 router.post('/signin', signin );
+/* get users listing. */
 router.get('/isSignin',isSignin);
 router.get('/signout',signout);
 module.exports = router;

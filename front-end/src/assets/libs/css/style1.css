@@ -27,15 +27,15 @@ a, a:hover, a:focus {
     text-decoration: none;
     outline: none;
 }
-::selection {
+/* ::selection {
 
     background: #68dff0;
     color: #fff;
-}
-::-moz-selection {
+} */
+/* ::-moz-selection {
     background: #68dff0;
     color: #fff;
-}
+} */
 
 #container {
     width: 100%;
@@ -363,7 +363,7 @@ ul.sidebar-menu li a{
     transition: all 0.3s ease;
 }
 
-ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
+ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover {
     background: #68dff0;
     color: #fff;
     display: block;

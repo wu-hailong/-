@@ -29,3 +29,5 @@
     margin-bottom: 10px;
     font-size: 12px;
     color: #d9534f; }
+  #login-page form {
+    box-shadow: 0 0 20px #fff; }

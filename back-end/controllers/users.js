@@ -4,6 +4,8 @@ const usersModel = require("../models/users")
 
 const tools = require("../utils/tools")
 
+const middleware  = require("../middlewares/auth")
+
 const signup = async function(req, res, next) {
     console.log(req.body)
     let {username,password} = req.body
@@ -81,23 +83,8 @@ const signin = async function(req,res,next){
     })
   }
 }
-const isSignin = function(req,res,next){
-  res.set('Content-Type', 'application/json; charset=utf-8')
+const isSignin = middleware
 
-  if(req.session.username){
-    res.render("succ",{
-      data:JSON.stringify({
-        username:req.session.username
-      })
-    })
-  }else{
-    res.render("fail",{
-      data:JSON.stringify({
-        message:"没有权限."
-      })
-    })
-  }
-}
 signout = function(req,res,next){
   res.set('Content-Type', 'application/json; charset=utf-8')
   req.session = null
