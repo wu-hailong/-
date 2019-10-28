@@ -6,14 +6,14 @@ export default {
             url : url,
             type: type,
             data,
-            headers:{
-                "X-Access-Token":token
-            },
+            // headers:{
+            //     "X-Access-Token":token
+            // },
             success: (result,textStatus,jqXHR)=>{
-                let token = jqXHR.getResponseHeader("x-access-token")
-                if(token){
-                    store.set("token",token)
-                }
+                // let token = jqXHR.getResponseHeader("x-access-token")
+                // if(token){
+                //     store.set("token",token)
+                // }
                 return result
             }
           })

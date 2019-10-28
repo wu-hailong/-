@@ -81,12 +81,12 @@ class Layout{
     }
     
     //退出登录逻辑
-    signOut(){
-        // await httpModel.get({
-        //     url:"/api/users/signout"
-        // })
+   async signOut(){
+        await httpModel.get({
+            url:"/api/users/signout"
+        })
         // this.render()
-        store.remove('token')
+        // store.remove('token')
         location.reload()
     }
 

@@ -62,8 +62,8 @@ const signin = async function(req,res,next){
         //登录成功设置token
         let token = await tools.generateToken(username)
         //向headers 添加自定义的字段
-        res.header("X-Access-Token",token)
-
+        // res.header("X-Access-Token",token)
+        res.cookie('token',token)
 
         res.render("succ",{
           data:JSON.stringify({
@@ -90,8 +90,8 @@ const isSignin = middleware
 
 signout = function(req,res,next){
   res.set('Content-Type', 'application/json; charset=utf-8')
-  req.session = null
-
+  // req.session = null
+  res.cookie('token','')
   res.render("succ",{
     data:JSON.stringify({
       message:"注销成功."
