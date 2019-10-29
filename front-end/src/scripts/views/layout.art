@@ -169,14 +169,14 @@
         {{/if}}
         <li class="mt">
         <a class="active" href="#/home" data-url="home">
-        <i class="fa fa-dashboard"></i>
+        <i class="fa fa-desktop"></i>
         <span>首页</span>
         </a>
         </li>
         <li class="sub-menu">
-        <a href="#/list"  data-url="list">
-        <i class="fa fa-desktop"></i>
-        <span>职位列表</span>
+        <a href="#/position"  data-url="position">
+        <i class="fa fa-th"></i>
+        <span>职位管理</span>
         </a>
         </li>
     </div>

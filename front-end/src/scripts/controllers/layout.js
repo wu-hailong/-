@@ -85,8 +85,7 @@ class Layout{
         await httpModel.get({
             url:"/api/users/signout"
         })
-        // this.render()
-        // store.remove('token')
+
         location.reload()
     }
 

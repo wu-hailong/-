@@ -1,0 +1,50 @@
+<h3><i class="fa fa-angle-right"></i> 职位管理</h3>
+<div class="content-panel">
+    <h4><i class="fa fa-angle-right"></i> 职位列表<a class="btn btn-success btn-sm pull-right" href="#/position_add">添加</a></h4>
+        
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>公司LOGO</th>
+                <th>公司名称</th>
+                <th>实习职位</th>
+                <th>公司位置</th>
+                <th>周工作日</th>
+                <th>发布时间</th>
+                <th>实习薪资</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><img src="http://placehold.it/60x60" alt=""></td>
+                <td>游戏AI工具开发实习生</td>
+                <td>阿里巴巴</td>
+                <td>杭州</td>
+                <td>5天/周</td>
+                <td>2019-10-28 19:59</td>
+                <td>200-250/天</td>
+                <td>
+                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img src="http://placehold.it/60x60" alt=""></td>
+                <td>游戏AI工具开发实习生</td>
+                <td>网易</td>
+                <td>杭州</td>
+                <td>5天/周</td>
+                <td>2019-10-28 19:59</td>
+                <td>200-250/天</td>
+                <td>
+                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
