@@ -1,42 +1,41 @@
 
-<h3><i class="fa fa-angle-right"></i> 添加职位</h3>
+<h3><i class="fa fa-angle-right"></i> 修改信息</h3>
 <div class="form-panel">
     <h4 class="mb"><i class="fa fa-angle-right"></i> 职位信息</h4>
     <form class="form-horizontal style-form " method="get">
         <div class="form-group">
             <label class="col-sm-2 control-label">公司名称</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="company" name="company" placeholder="请输入公司名称">
+                <input type="text" value="{{item.company}}" class="form-control" id="company" name="company" placeholder="请输入公司名称">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">实习职位</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="position" name="position" placeholder="请输入招聘职位">
+                <input type="text" value="{{item.position}}" class="form-control" id="position" name="position" placeholder="请输入招聘职位">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">公司位置</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="companySite" name="companySite" placeholder="请输入公司地点">
+                <input type="text" value="{{item.companySite}}" class="form-control" id="companySite" name="companySite" placeholder="请输入公司地点">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">周工作日</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="weeks" name="weeks" placeholder="请输入周工作日">
+                <input type="text" value="{{item.weeks}}" class="form-control" id="weeks" name="weeks" placeholder="请输入周工作日">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">实习薪资</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  id="salary" name="salary" placeholder="请输入实习日薪">
+                <input type="text" value="{{item.salary}}" class="form-control"  id="salary" name="salary" placeholder="请输入实习日薪">
             </div>
         </div>
         <div class="form-group panel-body">
-            <a class="btn btn-success btn-sm pull-left submit-btn" href="javascript:void(0);">确定</a>
+            <a class="btn btn-success btn-sm pull-left update-form-btn" href="javascript:void(0);">确定</a>
             <a class="btn btn-default btn-sm pull-right" href="#/position">返回</a>
         </div>
     </form>
 </div>
-
