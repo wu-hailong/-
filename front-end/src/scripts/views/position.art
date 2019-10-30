@@ -1,6 +1,13 @@
 <h3><i class="fa fa-angle-right"></i> 职位管理</h3>
 <div class="content-panel">
-    <h4><i class="fa fa-angle-right"></i> 职位列表<a class="btn btn-success btn-sm pull-right" href="#/position_add">添加</a></h4>
+    <h4>
+        <i class="fa fa-angle-right"></i> 职位列表
+        <div class="search-wrapper">
+            <input type="text" name="" class="" id="search" placeholder="search...">
+            <a class="btn btn-theme02 btn-sm search-btn" href="javascript:;">搜索</a>
+        </div>
+        <a class="btn btn-success btn-sm pull-right" href="#/position_add">添加</a>
+    </h4>
         
     <hr>
     <table class="table">
@@ -20,7 +27,7 @@
             {{each list}}
             <tr>
                 <td>{{$index + 1}}</td>
-                <td><img src="http://placehold.it/60x60" alt=""></td>
+                <td><img style="width:60px; height:60px;" src="http://localhost:3000/uploads/{{$value.companyLogo}}" alt=""></td>
                 <td>{{$value.company}}</td>
                 <td>{{$value.position}}</td>
                 <td>{{$value.companySite}}</td>

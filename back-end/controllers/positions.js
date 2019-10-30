@@ -1,6 +1,6 @@
 
 const positionModel = require("../models/positions")
-
+const moment = require('moment')
 const findAll = async(req,res,next)=>{
     res.set("Content-Type", "application/json; charset=utf-8")
     
@@ -21,7 +21,7 @@ const findAll = async(req,res,next)=>{
 }
 const findOne = async (req,res,next)=>{
     let id = req.query.id
-    console.log(id)
+    // console.log(id)
     let result = await positionModel.findOne(id)
     if(result){
         res.render('succ',{
@@ -36,7 +36,9 @@ const findOne = async (req,res,next)=>{
 const save = async (req,res,next)=>{
     res.set("Content-Type", "application/json; charset=utf-8")
     let data = req.body
-    data.createTime = "2019-10-29 15:23"
+    data.createTime = moment().format('YYYY-MM-DD HH:mm')
+    data.companyLogo = req.filename
+   
     let result = await positionModel.save(data)
     if(result){
         res.render("succ",{
@@ -55,8 +57,11 @@ const save = async (req,res,next)=>{
 
 const update = async (req,res,next)=>{
     let data = req.body
-
+    data.createTime = moment().format('YYYY-MM-DD HH:mm')
+    data.companyLogo = req.filename
+    // console.log(data)
     let result = await positionModel.update(data)
+    // console.log(result)
 
     if(result){
         res.render('succ',{
@@ -77,7 +82,7 @@ const remove = async (req,res,next)=>{
     // console.log(req.body.id)
     let id = req.body.id
     let result = await positionModel.remove(id)
-    console.log(result)
+    // console.log(result)
     if(result){
         res.render('succ',{
             data:JSON.stringify({
@@ -92,10 +97,31 @@ const remove = async (req,res,next)=>{
         })
     }
 }
+
+const search = async (req,res,next)=>{
+    let {keywords} = req.body
+    // console.log(keywords)
+    let result = await positionModel.search(keywords)
+    // console.log(result)
+    if(result){
+        res.render('succ',{
+            data:JSON.stringify({
+               list:result
+            })
+        })
+    }else{
+        res.render('fail',{
+            data:JSON.stringify({
+                message:'查询失败.'
+            })
+        })
+    }
+}
 module.exports = {
     findAll,
     findOne,
     save,
     update,
-    remove
+    remove,
+    search
 }

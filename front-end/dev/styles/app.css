@@ -20,14 +20,19 @@ h4 {
   text-align: center; }
 
 .pull-right {
-  margin-right: 10px; }
+  margin-right: 20px; }
 
 .pull-left {
-  margin-left: 10px; }
+  margin-left: 20px; }
 
-\
-button {
-  outline: none; }
+.search-wrapper {
+  float: right; }
+  .search-wrapper input {
+    border: 0;
+    padding: 2px 5px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 4px; }
 
 #login-page {
   height: 100%;

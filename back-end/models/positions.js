@@ -15,16 +15,22 @@ const findOne = async (id)=>{
 }
 
 const update = async (data)=>{
-    return Positions.findByIdAndUpdate(data.id,data)
+    return await Positions.findByIdAndUpdate(data.id,data)
 }
 
 const remove = async (id)=>{
-    return Positions.findByIdAndRemove(id)
+    return await Positions.findByIdAndRemove(id)
+}
+
+const search = async  (keywords)=>{
+    let reg = new RegExp(keywords,"gi")
+    return await Positions.find({}).or([{company:reg},{position:reg}])
 }
 module.exports = {
     save,
     findAll,
     findOne,
     update,
-    remove
+    remove,
+    search
 }

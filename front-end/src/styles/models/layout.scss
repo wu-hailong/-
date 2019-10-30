@@ -19,5 +19,16 @@
 }
 h4{padding-right: 15px;}
 .control-label{text-align: center;}
-.pull-right{margin-right: 10px;}
-.pull-left{margin-left: 10px;}\
+.pull-right{margin-right: 20px;}
+.pull-left{margin-left: 20px;}
+.search-wrapper{
+    float: right;
+    input{
+        border:0;
+        padding: 2px 5px;
+        outline: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+   
+}
