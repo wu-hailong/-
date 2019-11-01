@@ -10,7 +10,7 @@
     </h4>
         
     <hr>
-    <table class="table">
+    <table class="table ">
         <thead>
             <tr>
                 <th>#</th>
@@ -21,6 +21,7 @@
                 <th>周工作日</th>
                 <th>发布时间</th>
                 <th>实习薪资</th>
+                <th>操作</th>
             </tr>
         </thead>
         <tbody>
@@ -36,10 +37,25 @@
                 <td>{{$value.salary}}/天</td>
                 <td>
                     <button data-id="{{$value._id}}" class="btn btn-primary btn-xs update-btn"><i class="fa fa-pencil"></i> 修改</button>
-                    <button data-id="{{$value._id}}" class="btn btn-danger btn-xs delete-btn"><i class="fa fa-trash-o"></i> 删除</button>
+                    <button data-id="{{$value._id}}" data-img="{{$value.companyLogo}}" class="btn btn-danger btn-xs delete-btn"><i class="fa fa-trash-o"></i> 删除</button>
                 </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
+    <div class="clearfix">
+        <ul class="pagination no-margin pull-right pagination-sm">
+            <li><a href="javascirpt:void(0);" class="page-prev"><i class="fa fa-chevron-left text-transparent"></i></a></li>
+            {{each pageCount}}
+            {{if currentPage === $value}}
+            <li class="active">
+             {{else}}
+            <li>
+             {{/if}}
+                <a href="javascirpt:void(0);" class="pageNo">{{$value}}</a>
+            </li>
+            {{/each}}
+            <li><a href="javascirpt:void(0);" class="page-next"><i class="fa fa-chevron-right text-transparent"></i></a></li>
+        </ul>
+    </div>
 </div>

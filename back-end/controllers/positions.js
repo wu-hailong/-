@@ -1,21 +1,19 @@
 
 const positionModel = require("../models/positions")
 const moment = require('moment')
+const fs = require('fs')
+const path = require("path")
 const findAll = async(req,res,next)=>{
     res.set("Content-Type", "application/json; charset=utf-8")
-    
-    let result = await positionModel.findAll()
+    let pageInfo = req.query
+    let result = await positionModel.findAll(pageInfo)
     if(result){
         res.render("succ",{
-            data:JSON.stringify({
-                list:result
-            })
+            data:JSON.stringify(result)
         })
     }else{
         res.render("fail",{
-            data:JSON.stringify({
-                list:[]
-            })
+            data:JSON.stringify({})
         })
     }
 }
@@ -58,7 +56,12 @@ const save = async (req,res,next)=>{
 const update = async (req,res,next)=>{
     let data = req.body
     data.createTime = moment().format('YYYY-MM-DD HH:mm')
-    data.companyLogo = req.filename
+
+    if(req.filename === ''){
+        delete data.companyLogo
+    }else{
+        data.companyLogo = req.filename
+    }
     // console.log(data)
     let result = await positionModel.update(data)
     // console.log(result)
@@ -78,10 +81,20 @@ const update = async (req,res,next)=>{
     }
 }
 
-const remove = async (req,res,next)=>{
-    // console.log(req.body.id)
-    let id = req.body.id
-    let result = await positionModel.remove(id)
+const remove = (req,res,next)=>{
+    // console.log(req.body.id) 
+    let { id , tempCompanyLogo} = req.body
+    console.log(req.body)
+    //删除数据
+    let result = positionModel.remove(id)
+    //删除图片
+    if(result){
+        fs.unlink(path.resolve(__dirname,"../public/uploads/" + tempCompanyLogo),(err)=>{
+            if(err){
+                console.log(err.message)
+            }
+        })
+    }
     // console.log(result)
     if(result){
         res.render('succ',{

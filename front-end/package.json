@@ -25,6 +25,7 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
+    "lodash": "^4.17.15",
     "sme-router": "^0.12.8",
     "store": "^2.0.12",
     "string-loader": "0.0.1"

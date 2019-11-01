@@ -2,8 +2,11 @@ import positionListView from "../views/position.art"
 import positionAddView from "../views/position.add.art"
 import positionUpdateView from "../views/position.update.art"
 import httpModel from "../models/http"
+import _ from "lodash"
 
-//提交表单信息
+let count = 3
+
+//提交表单信息 添加数据
 function  _submitForm(){
     // $(".submit-btn").on("click",async()=>{
        let $form = $(".form-horizontal")
@@ -19,9 +22,8 @@ function  _submitForm(){
     //        alert(result.data.message)
     //    }
     // })
-    $form.ajaxForm(()=>{
-        // console.log(0)
-        $form[0].reset()
+    $form.ajaxForm({
+        resetForm:true
     })
 }
 
@@ -36,7 +38,7 @@ function _updateClick(res){
 //修改数据功能
 function  _updateForm(id,res){
     // $(".update-form-btn").on("click",async()=>{
-       let $form = $(".form-horizontal")
+    //    let $form = $(".form-horizontal")
     //    let data = $form.serialize() + '&id=' + id
     //     // console.log(data)
 
@@ -52,24 +54,33 @@ function  _updateForm(id,res){
     //        alert(result.data.message)
     //    }
     // })
-    // $form.formSerialize()
-    $form.ajaxForm({
-        type:'patch',
-        success:(result)=>{
-            console.log(result)
+    $('.form-horizontal').ajaxForm({
+        resetForm: true,
+        dataType: 'json',
+        url: '/api/position',
+        type: 'patch',
+        success: (result) => {
+          if (result.ret) {
+            res.go('/position')
+          } else {
+            alert(result.data.message)
+          }
         }
-    })
+      })
 }
 
 //删除数据
 function _removeClick(res){
     $("#router-view").on("click",".delete-btn",async function(){
         let id = $(this).attr('data-id')
+        let tempCompanyLogo = $(this).attr('data-img')
+        console.log(this)
         let result = await httpModel.update({
             url:'/api/position',
             type:'delete',
             data:{
-                id
+                id,
+                tempCompanyLogo
             }
         })
         // console.log(result)
@@ -111,17 +122,53 @@ function _searchEvent(res){
         }
     })
 }
+
+//分页功能
+// function _pagination(req,res,next){ 
+//     $(".pagination a.pageNo").on("click", function(){
+//         // list(req,res,next,$(this).text())
+//         res.go("/position_list/"+$(this).text())
+        
+//     })
+// }
+function _paginationClick(req,res,obj,type,pageCount){
+    if(type){
+        let page = ~~req.params.page
+        // console.log(type)
+        if(type === "prev" && page > 1){
+            console.log(page)
+            res.go("/position_list/" + (page-1))
+        }else if(type === "next" && page < pageCount.length){
+            res.go("/position_list/" + (page+1))
+        }
+    }else{
+        res.go("/position_list/"+ ~~$(obj).text())
+    }
+}
+
+
+//第一次加载页面时 由路由调用list方法page不存在  之后执行_pagination调用page为点击的页码
 export const list = async (req,res,next)=>{
+    
+    let currentPage = ~~req.params.page || 1
 
     let result = await httpModel.get({
-        url:"/api/position"
+        url:"/api/position",
+        data:{
+            start:(currentPage  - 1) * count,
+            count
+        }
     })
     // console.log(result)
+    let pageCount = _.range(1,Math.ceil(result.data.total/count)+1) 
+    // console.log(pageCount)
     if(result.ret){
-        let list = result.data.list
+        let {list} = result.data
         res.render(positionListView(
             {
-                list
+                list,
+                pageCount,
+                currentPage
             }
         ))
        
@@ -135,6 +182,18 @@ export const list = async (req,res,next)=>{
     _removeClick(res)
     //搜索功能
     _searchEvent(res)
+    //分页
+    // _pagination(req,res,next)
+    $(".pagination a.pageNo").on("click",function(){
+        _paginationClick(req,res,this)
+    })
+    $(".pagination a.page-prev").on("click",function(){
+        _paginationClick(req,res,this,"prev")
+    })
+    $(".pagination a.page-next").on("click",function(){
+        _paginationClick(req,res,this,"next",pageCount)
+    })
+
 }
 //添加数据
 export const add = (req,res,next)=>{
@@ -158,4 +217,5 @@ export const update = async(req,res,next)=>{
     }))
     // 修改数据功能
     _updateForm(id,res)
+    
 }

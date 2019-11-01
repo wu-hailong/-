@@ -4,6 +4,8 @@ const multer = require('multer')
 
 const randomstring = require('randomstring')
 
+const fs = require("fs")
+
 var filename = ''
 
 const mimetypeMap = {
@@ -30,7 +32,16 @@ const upload = multer({
 
 module.exports = (req,res,next)=>{
     upload(req,res,(err)=>{
+        // console.log(filename)
+        if(filename){
+            fs.unlink(path.resolve(__dirname,"../public/uploads/" + req.body.tempCompanyLogo) , (err)=>{
+                if(err){
+                    console.log(err.message)
+                }
+            })
+        } 
         req.filename = filename
+        filename = ''
         next()
     })
 }
