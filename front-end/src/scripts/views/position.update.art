@@ -7,7 +7,7 @@
         <div class="form-group">
                 <label class="col-sm-2 control-label">公司Logo</label>
                 <div class="col-sm-10">
-                    <img style="width:60px; height:60px;" src="http://localhost:3000/uploads/{{item.companyLogo}}" alt="">
+                    <img style="width:60px; height:60px;" src="{{item.companyLogo ? 'http://localhost:3000/uploads/' + item.companyLogo : 'http://placehold.it/60x60' }}" alt="">
                     <input type="file" value="{{item.companyLogo}}" id="companyLogo" name="companyLogo" placeholder="请上传公司Logo">
                 </div>
         </div>
@@ -48,7 +48,7 @@
             <!-- <a class="btn btn-success btn-sm pull-left update-form-btn" href="javascript:void(0);">确定</a>
             <a class="btn btn-default btn-sm pull-right" href="#/position">返回</a> -->
             <button type="submit" class="btn btn-success btn-sm pull-left submit-btn">确定</button>
-            <a class="btn btn-default btn-sm pull-right" href="#/position">返回</a>
+            <a class="btn btn-default btn-sm pull-right back-btn" href="javascript:void(0);">返回</a>
         </div>
     </form>
 </div>

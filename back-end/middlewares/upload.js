@@ -41,6 +41,7 @@ module.exports = (req,res,next)=>{
             })
         } 
         req.filename = filename
+        //filename 置空 否则下次修改 不修改图片 会延用上次修改使用的图片
         filename = ''
         next()
     })

@@ -10,6 +10,13 @@
     </h4>
         
     <hr>
+    {{if list.length === 0}}
+    <table class="">
+        <tr>
+            <td>暂无数据.</td>
+        </tr>
+    </table>
+    {{else}}
     <table class="table ">
         <thead>
             <tr>
@@ -28,7 +35,7 @@
             {{each list}}
             <tr>
                 <td>{{$index + 1}}</td>
-                <td><img style="width:60px; height:60px;" src="http://localhost:3000/uploads/{{$value.companyLogo}}" alt=""></td>
+                <td><img style="width:60px; height:60px;" src="{{$value.companyLogo ? 'http://localhost:3000/uploads/'+ $value.companyLogo:'http://placehold.it/60x60'}}" alt=""></td>
                 <td>{{$value.company}}</td>
                 <td>{{$value.position}}</td>
                 <td>{{$value.companySite}}</td>
@@ -43,6 +50,7 @@
             {{/each}}
         </tbody>
     </table>
+    {{if from === "list" && total > count}}
     <div class="clearfix">
         <ul class="pagination no-margin pull-right pagination-sm">
             <li><a href="javascirpt:void(0);" class="page-prev"><i class="fa fa-chevron-left text-transparent"></i></a></li>
@@ -58,4 +66,6 @@
             <li><a href="javascirpt:void(0);" class="page-next"><i class="fa fa-chevron-right text-transparent"></i></a></li>
         </ul>
     </div>
+    {{/if}}
+    {{/if}}
 </div>
