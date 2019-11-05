@@ -64,12 +64,12 @@ function gulpServer() {
     return connect.server({
         root: devPath,
         port: 8000,
-        host:"localhost",
+        host:"10.9.49.231",
         livereload: true,
         middleware: () => {
             return [
                 proxy("/api", {
-                    target: "http://localhost:3000",
+                    target: "http://10.9.49.231:3000",
                     changeOrigin: true
                     // pathRewrite: {
                     //     "^/api": ""

@@ -172,7 +172,7 @@ function _paginationClick(req,res,obj,type,pageCount){
 } 
 //第一次加载页面时 由路由调用list方法page不存在  之后执行_pagination调用page为点击的页码
 export const list = async (req,res,next)=>{
-    
+     
     let currentPage = ~~req.params.page || 1
 
     let result = await httpModel.get({
@@ -183,7 +183,7 @@ export const list = async (req,res,next)=>{
         }
     })
     //
-    if(result.data.list.length === 0 && currentPage > 1){
+    if(result.ret && result.data.list.length === 0 && currentPage > 1){
         res.go("/position_list/" + (currentPage - 1))
         return
     }
