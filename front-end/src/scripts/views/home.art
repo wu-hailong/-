@@ -1,1 +1,17 @@
-<div>This is home page  home 页面</div>
+<div class="home-wrapper">
+    <header class="home-title">
+        <img src="/assets/libs/img/logo-shixiseng.png" alt="">
+        <h1>实习僧网站后台管理系统</h1>
+    </header>
+    <section class="home-content">
+        <img src="/assets/libs/img/home.png" alt="">
+        <div>
+            <h3>系统介绍:</h3>
+            <p>1. 此系统是公司内部使用的一个后台管理系统.</p>
+            <p>2. 使用前请先进行注册个登录.</p>
+            <p>3. 主要用用于实习僧网站的数据管理.</p>
+            <p>4. 可以对职位信息进行添加、修改、删除.</p>
+            <p>5. 可以搜索具体的职位和公司的信息</p>
+        </div>
+    </section>
+</div>

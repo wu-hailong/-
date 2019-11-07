@@ -39,3 +39,42 @@ h4{padding-right: 15px;}
 .table>tbody>tr>td{
     border-bottom: 1px solid #ddd;
 }
+.notice-wrapper{
+    background: rgba($color: #000, $alpha: .7);
+    width: 300px;
+    height:150px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin:auto;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    display: none;
+    z-index: 999;
+    p{
+        line-height: 150px;
+    }
+    i{
+        position: absolute;
+        top: 0;
+        right: 10px;
+        cursor: pointer;
+    }
+}
+.home-wrapper{
+    .home-title{
+      margin-top: 30px;    
+    }
+    .home-content{
+      margin-top: 30px; 
+      p{
+          font-size: 16px;
+          line-height: 32px;
+      }
+    }  
+    
+}

@@ -203,7 +203,9 @@ export const list = async (req,res,next)=>{
         ))
        
     }else{
-        alert("请先登录！！！！")
+        // console.log($(".notice-wrapper"))
+        //提示用户登录并且条装路由到首页
+        $(".notice-wrapper").fadeIn(500)
         res.go("/home")
     }
     //跳转修改页面功能

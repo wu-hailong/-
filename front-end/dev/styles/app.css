@@ -41,6 +41,39 @@ h4 {
 .table > tbody > tr > td {
   border-bottom: 1px solid #ddd; }
 
+.notice-wrapper {
+  background: rgba(0, 0, 0, 0.7);
+  width: 300px;
+  height: 150px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  display: none;
+  z-index: 999; }
+  .notice-wrapper p {
+    line-height: 150px; }
+  .notice-wrapper i {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    cursor: pointer; }
+
+.home-wrapper .home-title {
+  margin-top: 30px; }
+
+.home-wrapper .home-content {
+  margin-top: 30px; }
+  .home-wrapper .home-content p {
+    font-size: 16px;
+    line-height: 32px; }
+
 #login-page {
   height: 100%;
   width: 100%;

@@ -30,7 +30,10 @@ class Layout{
         $(".login-wrap input").on("focus",function(){
             $(".tips").html("")
         })
-
+        //关闭提示框
+        $(".close-notice").on("click",function(){
+            $(".notice-wrapper").fadeOut(500)
+        })
     }
     //提交表单  进行ajax请求
     async handleSubmit(){
@@ -95,6 +98,7 @@ class Layout{
         //渲染标题
         $("#login-title").html($(target).html())
         $("#login-page").fadeIn(500)
+        $(".notice-wrapper").fadeOut(500)
     }
     hideLogin(){
         $("#login-page").fadeOut(500)
